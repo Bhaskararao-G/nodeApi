@@ -3,7 +3,6 @@ const Profession = require('../models/profession');
 module.exports = {
     getProfessions(req, res) {
         Profession.find({}).sort({"createdAt": -1}).exec((err, professions)=> {
-            console.log('---- get professions');
             if (!err && professions.length > 0) {
                 res.status(200).send({
                     success: true,
@@ -15,7 +14,6 @@ module.exports = {
     },
 
     createProfession(req, res) {
-        console.log('create profession---',req.body);
         let pro_data = req.body;
 
         Profession.findOne({name: pro_data.name}, (err, proExists)=> {
@@ -38,7 +36,6 @@ module.exports = {
         })
     },
     delProfession(req, res) {
-        console.log('del profession---', req.body);
         let pro_data = req.body;
 
         Profession.findByIdAndDelete({_id: pro_data.id}, (err)=> {
@@ -56,7 +53,6 @@ module.exports = {
         })
     },
     updateProf(req, res) {
-        console.log('update prof---', req.body);
         let pro_data = req.body;
 
         Profession.update({_id: pro_data.id}, { color: pro_data.color }, (err)=> {

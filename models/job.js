@@ -8,7 +8,8 @@ const jobSchema = new Schema({
 	type: { type: mongoose.Schema.Types.ObjectId, ref: 'profession' },
 	user: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
     status: { type: Number, default: 0 },
-    accept: { type: Number, default: 1 }
+	accept: { type: Number, default: 1 },
+	createdTime: { type : Date, default: Date.now }
 }, {
   timestamps: true
 });

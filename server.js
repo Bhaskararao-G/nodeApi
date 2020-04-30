@@ -9,10 +9,12 @@ const adminRoutes = require('./routes/admin-routes');
 
 const app = express();
 
-// const db = 'mongodb://localhost/mean_auth';
-const db = process.env.MONGODB_URI || 'mongodb://bhaskarDB:Bhaskar1@db@ds141248.mlab.com:41248/heroku_hjw9t9l8';
+const password = encodeURIComponent("Bhaskar1@db");
 
-mongoose.connect(db, err => {
+// const db = 'mongodb://localhost/mean_auth';
+const db = process.env.MONGODB_URI || 'mongodb://bhaskarDB:'+password+'@ds141248.mlab.com:41248/heroku_hjw9t9l8';
+
+mongoose.connect(db, {useNewUrlParser : true}, err => {
 	if (err) {
 		console.error('Error!' + err);
 	} else {

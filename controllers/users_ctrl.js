@@ -50,8 +50,7 @@ module.exports = {
     },
     userLogin(req, res) {
         let userData = req.body;
-        
-        User.findOne({ $or:[{ 'phone': userData.phone }, {'uname': userData.phone}]}, (err, user)=> {
+        User.findOne({ $or:[{ 'phone': userData.uname }, {'uname': userData.uname}]}, (err, user)=> {
             if (err) {
                 res.send({
                     success: false,
@@ -61,7 +60,7 @@ module.exports = {
                 if (!user) {
                     res.send({
                         success: false,
-                        msg: "Invalid email"
+                        msg: "Invalid username or phone number"
                     });				
                 } else if (user.password !== userData.password) {
                     res.send({

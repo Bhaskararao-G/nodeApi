@@ -9,7 +9,7 @@ const userSchema = new Schema({
 	password: { type: String },
 	gender: { type: String, default: null },
 	age: { type: Number, default: null },
-	phone: { type: Number },
+	phone: { type: String },
 	profession: [{ type: mongoose.Schema.Types.ObjectId, ref: 'profession' }],
 	status: { type: Number, default: 1 }
 	},{

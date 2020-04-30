@@ -31,7 +31,7 @@ router.post('/add_user', users_ctrl.createUser);
 // router.get('/get_users', verifyToken, users_ctrl.getUsers);
 router.get('/get_users', users_ctrl.getUsers);
 router.post('/login', users_ctrl.userLogin);
-router.post('/create_job',verifyToken, job_ctrl.createJob);
+router.post('/create_job', job_ctrl.createJob);
 // router.get('/get_jobs',verifyToken, job_ctrl.getJobs);
 router.get('/get_jobs', job_ctrl.getJobs);
 
