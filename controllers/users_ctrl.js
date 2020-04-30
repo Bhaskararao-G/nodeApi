@@ -17,7 +17,7 @@ module.exports = {
         console.log('-----create user-----');
         var user = req.body;
         var professions = user.profession.map((item) => {
-            return item.id;
+            return item.id != undefined ? item.id : item;
         });
 
         User.findOne({phone: user.phone}, (err, userExists)=> {
