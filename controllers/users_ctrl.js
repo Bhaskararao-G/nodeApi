@@ -51,7 +51,7 @@ module.exports = {
     userLogin(req, res) {
         let userData = req.body;
         
-        User.findOne({ $or:[{ 'phone': userData.phone }, {'username': userData.phone}]}, (err, user)=> {
+        User.findOne({ $or:[{ 'phone': userData.phone }, {'uname': userData.phone}]}, (err, user)=> {
             if (err) {
                 res.send({
                     success: false,
