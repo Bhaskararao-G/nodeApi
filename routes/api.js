@@ -34,6 +34,7 @@ router.post('/login', users_ctrl.userLogin);
 router.post('/create_job', job_ctrl.createJob);
 // router.get('/get_jobs',verifyToken, job_ctrl.getJobs);
 router.get('/get_jobs', job_ctrl.getJobs);
+router.get('/job_details/:job_id', job_ctrl.jobDetails);
 
 // router.post('/register', (req, res)=> {
 // 	let userData = req.body;

@@ -38,4 +38,23 @@ module.exports = {
         }
       })
     },
+    jobDetails(req, res) {
+      Job.findOne({ _id: req.params.job_id }, (err, job) => {
+        if (!err) {
+          var pop_job = job.populate('user').populate('type').execPopulate();
+          pop_job.then(doc => {
+            res.send({
+              success: true,
+              msg: "Job details",
+              job: doc
+            })
+          });
+        } else {
+          res.send({
+            success: false,
+            msg: "Something went wrong"
+          });
+        }
+      })
+    }
 }
