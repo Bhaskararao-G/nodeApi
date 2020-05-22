@@ -5,6 +5,7 @@ const jobSchema = new Schema({
 	title: String,
 	description: String,
 	location: String,
+	images: String,
 	type: { type: mongoose.Schema.Types.ObjectId, ref: 'profession' },
 	user: { type: mongoose.Schema.Types.ObjectId, ref: 'user' },
     status: { type: Number, default: 0 },

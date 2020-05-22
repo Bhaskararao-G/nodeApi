@@ -6,7 +6,6 @@ const cors = require('cors');
 const PORT = process.env.PORT || 3000;
 const api = require('./routes/api');
 const adminRoutes = require('./routes/admin-routes');
-
 const app = express();
 
 const password = encodeURIComponent("Bhaskar1@db");
@@ -24,12 +23,23 @@ mongoose.connect(db, {useNewUrlParser : true}, err => {
 
 app.use(cors());
 app.use(bodyParser.json());
+
+//create a cors middleware
+app.use(function(req, res, next) {
+//set headers to allow cross origin request.
+	res.header("Access-Control-Allow-Origin", "*");
+	res.header('Access-Control-Allow-Methods', 'PUT, GET, POST, DELETE, OPTIONS');
+	res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+	next();
+});
+
 app.use('/api', api);
 app.use('/admin', adminRoutes);
 
 app.get('/', (req, res)=> {
 	res.send("Hello from server");
 });
+
 
 
 
